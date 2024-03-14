@@ -1,0 +1,46 @@
+/* Estilos para la lista de productos */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Estilos para cada producto individual */
+.product {
+    width: 30%; /* Ajusta el ancho según tus necesidades */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los diferentes campos de producto */
+.title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.description {
+    margin-bottom: 5px;
+}
+
+.price {
+    color: green;
+    margin-bottom: 5px;
+}
+
+.thumbnail {
+    margin-bottom: 5px;
+}
+
+.code {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.stock {
+    font-weight: bold;
+    color: red;
+    margin-bottom: 5px;
+}
