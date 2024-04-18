@@ -1,10 +1,12 @@
 <div id="product-list">
+{{#each carts}}
+    <h2>{{title}}</h2>
     <ul>
         {{#each products}}
-        <li id="list-item">
-            {{quantity}} {{product}} 
-            <a href='#' onclick="js:deletProductCart('{{id}}')">eliminar</a>
-            </li>
+            <li>{{product.title}} - Cantidad: {{quantity}}</li>
+                <a href='#' onclick="js:deletProductCart('{{id}}')">eliminar</a>
         {{/each}}
-        </ul>
+    </ul>
+{{/each}}
 <div>
+

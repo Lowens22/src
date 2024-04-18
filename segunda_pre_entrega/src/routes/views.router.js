@@ -58,16 +58,33 @@ router.get('/addProducts', async (req, res) => {
     })
 })
 
-router.get('/api/carts', async (req, res) => {
-    res.render('carts', {
-        title: 'Carrito',
-        styles: [
-            'css.css'
-        ],
-        scripts: [
-            'carts.js'
-        ]
-    })
-})
+
+router.get('/apicarts', async (req, res) => {
+    try {
+        const handlebars = require('handlebars');
+        const hbs = handlebars.create({ noProtoAccessWarnings: true });
+        
+
+        // Poblar los carritos con los productos asociados
+        const CartsManager = req.app.get('cartsManager')
+        const populatedCarts = await CartsManager.populateCarts();
+
+        // Renderizar la vista 'carts' con los carritos poblados
+        res.render('carts', {
+            title: 'Carrito',
+            carts: populatedCarts, // Pasa los carritos poblados a la vista
+            styles: [
+                'css.css'
+            ],
+            scripts: [
+                'carts.js'
+            ]
+        });
+    } catch (error) {
+        // Manejar errores
+        console.error('Error al recuperar y poblar los carritos:', error);
+        res.status(500).send('Error interno del servidor');
+    }
+});
 
 module.exports = router
