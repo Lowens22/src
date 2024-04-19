@@ -1,0 +1,24 @@
+    <div>
+        <p>Filtrar productos:</p>
+        <form action="" id="filter-products">
+            <label for="in_title">title</label>
+            <input type="text" name="title" id="in_title" placeholder="Nombre"/>
+            <button type="submit">Filtrar</button>
+        </form>
+    </div>
+
+    <div id="product-list">
+        <ul>
+            {{#each products}}
+            <li id="list-item">
+                {{title}} {{description}} - {{price}}
+                <a href='#' class="buy-button" data-product-id="{{id}}">comprar</a>
+            </li>
+            {{/each}}
+        </ul>
+    <div>
+        <a href="/addProducts">nuevo producto</a>
+    </div>
+
+</div>
+
